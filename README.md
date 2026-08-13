@@ -31,10 +31,10 @@ This maps directly to real SOC / Security Monitoring responsibilities:
 
 ```
 ┌─────────────────────┐        ┌───────────────────────────┐        ┌─────────────────────┐
-│   Attacker (Kali)    │──────▶│   Vulnerable Host           │──────▶│   Wazuh Server        │
-│  hydra / sqlmap /     │       │  Metasploitable2 / DVWA     │ logs  │  Manager + Indexer   │
-│  nmap                 │       │  + Wazuh agent / rsyslog    │──────▶│  + Dashboard (UI)     │
-└─────────────────────┘        └───────────────────────────┘        └───────────────────────────┘
+│   Attacker (Kali)   │──────▶│   Vulnerable Host         │ ──────▶│   Wazuh Server      │
+│  hydra / sqlmap /   │        │  Metasploitable2 / DVWA   │ logs   │  Manager + Indexer  │
+│  nmap               │        │  + Wazuh agent / rsyslog  │──────▶│  + Dashboard (UI)    |
+└─────────────────────┘        └───────────────────────────┘        └─────────────────────┘
                                                                               │
                                                                               ▼
                                                                     Alerts triggered by
