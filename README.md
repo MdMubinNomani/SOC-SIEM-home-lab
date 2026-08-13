@@ -1,14 +1,14 @@
 # SOC / SIEM Home Lab
 
 A self-contained Security Operations lab built to practice SIEM deployment, log
-collection, detection engineering, and alert triage — the core day-to-day
+collection, detection engineering, and alert triage, the core day-to-day
 workflow of a SOC analyst.
 
 The lab deploys **Wazuh** (Elastic Stack under the hood: Elasticsearch/OpenSearch
 indexer + Kibana-style dashboard) as the SIEM, feeds it logs from a
 deliberately vulnerable host (Metasploitable2 / DVWA), simulates common
 attacks against that host, and documents the resulting alerts as formal
-triage write-ups — the same artifact a Tier-1 SOC analyst produces for every
+triage write-ups, the same artifact a Tier-1 SOC analyst produces for every
 incident.
 
 ---
@@ -31,9 +31,9 @@ This maps directly to real SOC / Security Monitoring responsibilities:
 
 ```
 ┌─────────────────────┐        ┌───────────────────────────┐        ┌─────────────────────┐
-│   Attacker (Kali)   │──────▶│   Vulnerable Host         │ ──────▶│   Wazuh Server      │
+│   Attacker (Kali)   │──────> │   Vulnerable Host         │──────> │   Wazuh Server      │
 │  hydra / sqlmap /   │        │  Metasploitable2 / DVWA   │ logs   │  Manager + Indexer  │
-│  nmap               │        │  + Wazuh agent / rsyslog  │──────▶│  + Dashboard (UI)    |
+│  nmap               │        │  + Wazuh agent / rsyslog  │──────> │  + Dashboard (UI)   |
 └─────────────────────┘        └───────────────────────────┘        └─────────────────────┘
                                                                               │
                                                                               ▼
@@ -45,7 +45,7 @@ This maps directly to real SOC / Security Monitoring responsibilities:
 
 Three VMs on an isolated **host-only / NAT network** (no exposure to your real network):
 
-1. **Wazuh server** — Ubuntu 22.04, 4GB+ RAM — manager, indexer, dashboard
+1. **Wazuh server** — Ubuntu 22.04, 4GB+ RAM : manager, indexer, dashboard
 2. **Victim** — Metasploitable2 or a DVWA box (Ubuntu + Apache/MySQL + DVWA)
 3. **Attacker** — Kali or Parrot OS
 
@@ -63,7 +63,7 @@ Three VMs on an isolated **host-only / NAT network** (no exposure to your real n
 5. **Observe alerts** in the Wazuh dashboard, confirm the rules fired as
    expected, and screenshot the evidence.
 6. **Triage** each alert using the template in `triage-writeups/`, producing
-   one write-up per attack type — treating it exactly like a real SOC ticket.
+   one write-up per attack type, treating it exactly like a real SOC ticket.
 
 ---
 
