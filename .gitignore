@@ -1,0 +1,17 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Secrets / credentials — never commit real lab IPs, passwords, or cookies
+*.env
+credentials.txt
+*.pem
+*.key
+
+# Large scan output / captures you may not want tracked
+*.pcap
+nmap-output/
